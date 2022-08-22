@@ -1,21 +1,31 @@
 import {distance, normaliseVector, randomUnitVect, subtractVectors, addVectors,  multiplyVector, sizeOfVector} from './math_helpers'
 
 class Animation {
-    constructor(ctx, width, height, boids) {
+    constructor(ctx, width, height) {
       this.ctx = ctx;
       this.width = width;
       this.height = height;
-      this.boids = boids
+      this.boids = []
     }
   
-    addMultipleBoids(){}
+    addMultipleBoids(numNewBoids){
+      for (let i = 0; i < numNewBoids; i++) {
+        this.boids.push(
+          new Boid(
+            [Math.random() * this.width,
+            Math.random() * this.height],
+            [5 * Math.random(),
+            5 * Math.random()]
+          )
+        );
 
-    addBoid(Number){
+    }}
+
+    addBoid(position){
       this.boids.push(new Boid(
-        [Math.random() * this.width,
-        Math.random() * this.height],
-        [5 * Math.random(),
-        5 * Math.random()]
+        position,
+        [10 * Math.random() -5,
+        10 * Math.random() -5]
       ))
           return this.boids.length
     }

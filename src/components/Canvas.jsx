@@ -1,7 +1,7 @@
-function CanvasElement({canvasRef}) {
+function CanvasElement({canvasRef, addBoidToPosition}) {
     return ( 
     <div className="canvas-element">
-        <canvas id="main-canvas" ref={canvasRef}></canvas>
+        <canvas id="main-canvas" ref={canvasRef} onClick={(e) => addBoidToPosition(e)}></canvas>
     </div>);
 }
 
