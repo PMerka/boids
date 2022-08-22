@@ -1,7 +1,7 @@
-function CanvasElement() {
+function CanvasElement({canvasRef}) {
     return ( 
     <div className="canvas-element">
-        <canvas id="main-canvas"></canvas>
+        <canvas id="main-canvas" ref={canvasRef}></canvas>
     </div>);
 }
 
