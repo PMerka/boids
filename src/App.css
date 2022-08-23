@@ -1,6 +1,6 @@
 html, body{
   margin: 0;
-  background-color:#06c;
+  background-color:rgb(1, 49, 98);
   color: rgba(255, 255, 255, 0.9);
   font-family: sans-serif;
 }
@@ -51,8 +51,39 @@ h1{
 }
 
 #main-canvas{
-    
     width: 100%;
     aspect-ratio: 16 / 9;
     /*background-color: rgb(0, 0, 0);*/
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: rgba(255, 254, 254, 0.3); /* Grey background */
+  outline: none; /* Remove outline */
+}
+
+::-webkit-slider-runnable-track {
+  background: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 5px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #d3d3d3; /* Green background */
+  border-radius: 2.5px;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 5px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #d3d3d3; /* Green background */
+  border-radius: 5px;
+  border-color: none; 
+  cursor: pointer; /* Cursor on hover */
 }
