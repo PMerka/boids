@@ -61,6 +61,11 @@ function Controls({ updateProperty, property, setProperty }) {
         maxValue={30}
         step={0.1}
       />
+
+<div style={{padding: "10px", paddingTop: "30px"}}>
+  Add new boid by click on the canvas. 
+</div>
+      
     </div>
   );
 }
