@@ -45,7 +45,14 @@ class Animation {
         }
     }
   
-    addMultipleBoids(numNewBoids, boidRadius){
+    addMultipleBoids(numNewBoids, settings={
+        perception: 25,
+        maxSpeed: 3,
+        maxForce: 1,
+        alignForce: 1,
+        cohesionForce: 0.5,
+        separationForceConstant: 10,
+      }){
       for (let i = 0; i < numNewBoids; i++) {
         this.boids.push(
           new Boid(
@@ -53,7 +60,7 @@ class Animation {
             Math.random() * this.height],
             [5 * Math.random(),
             5 * Math.random()],
-            boidRadius
+            settings
           )
         );
     }}
@@ -87,7 +94,14 @@ class Animation {
 
 
 class Boid{
-    constructor(position, velocity, boidRadius = 50){
+    constructor(position, velocity, settings={
+        perception: 25,
+        maxSpeed: 3,
+        maxForce: 1,
+        alignForce: 1,
+        cohesionForce: 0.5,
+        separationForceConstant: 10,
+      }){
         if(!Array.isArray(position)) {
             throw new Error('Position argument is not array');
         }
@@ -100,12 +114,20 @@ class Boid{
         this.velocity = velocity
 
         //constants
-        this.perception = boidRadius
-        this.maxSpeed = 3
-        this.maxForce = 1
-        this.alignForce = 1
-        this.cohesionForce = 0.5
-        this.separationForceConstant = 10
+        /*
+    settings.perception
+    settings.maxSpeed
+    settings.maxForce
+    settings.alignForce
+    settings.cohesionForce
+    settings.separationForceConstant
+        */
+        this.perception = settings.perception
+        this.maxSpeed = settings.maxSpeed
+        this.maxForce = settings.maxForce
+        this.alignForce = settings.alignForce
+        this.cohesionForce = settings.cohesionForce
+        this.separationForceConstant = settings.separationForceConstant
         this.avrgforces = true
     }
 

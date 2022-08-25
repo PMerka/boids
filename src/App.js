@@ -50,7 +50,7 @@ function App() {
       canvasRef.current.width,
       canvasRef.current.height
     );
-    animation.current.addMultipleBoids(50, 30);
+    animation.current.addMultipleBoids(50, property);
     // calling animation
     const animationFrameId = window.requestAnimationFrame(() =>
       animation.current.animate()
