@@ -5,6 +5,36 @@ html, body{
   font-family: sans-serif;
 }
 
+.gh-icon{
+  margin-bottom: 1em;
+}
+
+.gh-link{
+  text-decoration: none;
+  color: inherit;
+  color: rgba(255, 255, 255, 0.9);
+  width: 80;
+  height: 110;
+  margin-bottom: 20px;
+}
+
+.gh-link img{ 
+  opacity: 0.9;
+  width: 60px;
+  margin: 2.5px;
+}
+
+.gh-link:hover{
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
+.gh-link img:hover{ 
+  width: 65px;
+  margin: 0px;
+  opacity: 1;
+}
+
 ul {
   margin-left: 20px;
   padding-left: 0px;

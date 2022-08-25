@@ -1,6 +1,7 @@
 import {distance, normaliseVector, randomUnitVect, subtractVectors, addVectors,  multiplyVector, sizeOfVector} from './math_helpers'
 
 class Animation {
+    //Animation logic
     constructor(ctx, width, height) {
       this.ctx = ctx;
       this.width = width;
@@ -82,7 +83,10 @@ class Animation {
     }
   }
 
-  class Boid{
+
+
+
+class Boid{
     constructor(position, velocity, boidRadius = 50){
         if(!Array.isArray(position)) {
             throw new Error('Position argument is not array');

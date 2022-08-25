@@ -1,3 +1,8 @@
+/*
+Helper functions for 2d vector math
+accepts [x, y]
+*/
+
 function addVectors(...vectors){
     let sum = [0, 0]
     for (const vecor of vectors) {
