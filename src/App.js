@@ -8,8 +8,6 @@ import { useEffect, useRef, useState } from "react";
 function App() {
   const canvasRef = useRef(null);
   const animation = useRef(null);
-  const [boidVision, setBoidVision] = useState(25);
-  const [maxForce, setBoidmaxForce] = useState(100);
   const [property, setProperty] = useState({
     perception: 25,
     maxSpeed: 3,
@@ -36,7 +34,6 @@ function App() {
     const canvasPageWidth = rect.right - rect.left;
     const x = e.clientX - rect.left; //x position within the element.
     const y = e.clientY - rect.top; //y position within the element.
-    console.log(rect.top, rect.bottom);
     animation.current.addBoid([
       (x * canvasRef.current.width) / canvasPageWidth,
       (y * canvasRef.current.height) / canvasPageHeight,
