@@ -9,8 +9,12 @@ class Animation {
       this.boids = []
     }
 
-    updatePropertyOfBoid(propertyName, propertyValue){
-        for(const boid of this.boids){
+    updatePropertyOfBoid(propertyName, propertyValue, groupNumber){
+        console.log(this.boids[groupNumber])
+        if(groupNumber > this.boids.length){
+            return false
+        }
+        for(const boid of this.boids[groupNumber]){
             boid[propertyName] = propertyValue
         }
     }
@@ -52,9 +56,12 @@ class Animation {
         alignForce: 1,
         cohesionForce: 0.5,
         separationForceConstant: 10,
+        color: 'rgba(255, 255, 100, 0.03)'
       }){
+    
+      let newBoidsGroup = []
       for (let i = 0; i < numNewBoids; i++) {
-        this.boids.push(
+         newBoidsGroup.push(
           new Boid(
             [Math.random() * this.width,
             Math.random() * this.height],
@@ -63,23 +70,28 @@ class Animation {
             settings
           )
         );
-    }}
+        
+    }
+    this.boids.push(newBoidsGroup)
+    }
 
-    addBoid(position){
-      this.boids.push(new Boid(
+    addBoid(position, property, activeGroup){
+      this.boids[activeGroup].push(new Boid(
         position,
         [10 * Math.random() -5,
-        10 * Math.random() -5]
+        10 * Math.random() -5],
+        property
       ))
           return this.boids.length
     }
     
     animate() {
+        console.log(this.boids)
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.drawGrid()
-      for (const boid of this.boids) {
+      for (const boid of this.boids.flat()) {
         boid.updatePosition()
-        boid.distanceBoids(this.boids)
+        boid.distanceBoids(this.boids.flat())
         boid.align()
         boid.cohesion()
         boid.separation()
@@ -101,6 +113,7 @@ class Boid{
         alignForce: 1,
         cohesionForce: 0.5,
         separationForceConstant: 10,
+        color: 'rgba(255, 255, 100, 0.03)'
       }){
         if(!Array.isArray(position)) {
             throw new Error('Position argument is not array');
@@ -112,22 +125,13 @@ class Boid{
         this.position = position
         //initial velocity
         this.velocity = velocity
-
-        //constants
-        /*
-    settings.perception
-    settings.maxSpeed
-    settings.maxForce
-    settings.alignForce
-    settings.cohesionForce
-    settings.separationForceConstant
-        */
         this.perception = settings.perception
         this.maxSpeed = settings.maxSpeed
         this.maxForce = settings.maxForce
         this.alignForce = settings.alignForce
         this.cohesionForce = settings.cohesionForce
         this.separationForceConstant = settings.separationForceConstant
+        this.color = settings.color
         this.avrgforces = true
     }
 
@@ -166,8 +170,8 @@ class Boid{
       ctx.lineTo(...endpoint);
       ctx.stroke();
 
-      ctx.fillStyle = 'rgba(255, 255, 100, 0.03)'
-      ctx.strokeStyle = 'rgba(255, 255, 100, 0.01)'
+      ctx.fillStyle = this.color
+      ctx.strokeStyle = this.color
       ctx.beginPath();
       ctx.arc(this.position[0], this.position[1], this.perception, 0, 2 * Math.PI);
       ctx.stroke();

@@ -7,25 +7,30 @@ import { useEffect, useRef, useState } from "react";
 
 function App() {
   const canvasRef = useRef(null);
-  const animation = useRef(null);
-  const [property, setProperty] = useState({
-    perception: 25,
+  const animation = useRef(null); 
+  const startingSetting = {
+    perception: 30,
     maxSpeed: 3,
     maxForce: 1,
     alignForce: 1,
     cohesionForce: 0.5,
-    separationForceConstant: 10,
-  });
+    separationForceConstant: 10,   
+    color: 'rgba(255, 255, 100, 0.03)' 
+  }
+  const [activeGroup, setActiveGroup] = useState(0)
+  const [property, setProperty] = useState([startingSetting]);
 
   const fullScreen = () => {
     canvasRef.current.requestFullscreen();
   };
 
   const updateProperty = (key, value) => {
-    animation.current.updatePropertyOfBoid(key, value);
+    animation.current.updatePropertyOfBoid(key, value, activeGroup);
     let newProperty = { ...property };
-    newProperty[key] = Number(value);
-    setProperty(newProperty);
+    console.log(property)
+    let newArray = property.map( obj => {return {...obj} } )
+    newArray[activeGroup][key] = Number(value);
+    setProperty(newArray);
   };
 
   const addBoidToPosition = (e) => {
@@ -37,8 +42,15 @@ function App() {
     animation.current.addBoid([
       (x * canvasRef.current.width) / canvasPageWidth,
       (y * canvasRef.current.height) / canvasPageHeight,
-    ]);
+    ], property[activeGroup], activeGroup);
   };
+
+  const addNewBoidGroup = (numNewBoids) => {
+    let newArray = property.map( obj => {return {...obj} } )
+    newArray.push(startingSetting)
+    animation.current.addMultipleBoids(numNewBoids, startingSetting);
+    setProperty(newArray)
+  }
 
   useEffect(() => {
     canvasRef.current.width = 1280;
@@ -50,7 +62,7 @@ function App() {
       canvasRef.current.width,
       canvasRef.current.height
     );
-    animation.current.addMultipleBoids(50, property);
+    animation.current.addMultipleBoids(40, startingSetting);
     // calling animation
     const animationFrameId = window.requestAnimationFrame(() =>
       animation.current.animate()
@@ -78,6 +90,9 @@ function App() {
           updateProperty={updateProperty}
           property={property}
           setProperty={setProperty}
+          activeGroup={activeGroup}
+          setActiveGroup={setActiveGroup}
+          addNewBoidGroup={addNewBoidGroup}
         />
       </div>
 

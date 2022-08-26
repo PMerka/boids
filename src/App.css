@@ -1,6 +1,6 @@
 html, body{
   margin: 0;
-  background-color:rgb(3, 84, 164);
+  background-color:rgb(15, 76, 146);
   color: rgba(255, 255, 255, 0.9);
   font-family: sans-serif;
 }
@@ -40,12 +40,33 @@ ul {
   padding-left: 0px;
  }
 
- li{
+li{
   margin-bottom: 5px;
  }
 
 h1{
   text-align: center;
+}
+
+.group-picking-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.addNewGroup{
+  bottom: 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addNewGroup:hover{
+  background-color: rgba(255, 255, 255, 0.1);;
 }
 
 .box {
@@ -121,7 +142,32 @@ margin-top: 25px;
   border: solid;
   border-width: 2px;
   border-color: rgba(255, 254, 254, 0.30);
-  flex-basis: 28%;
+  flex-basis: 27%;
+}
+
+.active-group-options-list{
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.active-group-options{
+  cursor: pointer;
+  padding: 3px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.active-group-options-current{
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+.active-group-options:hover{
+  background-color: rgba(255, 255, 255, 0.1);;
 }
 
 #main-canvas{
