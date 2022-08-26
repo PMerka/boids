@@ -2,13 +2,10 @@ import "./App.css";
 import CanvasElement from "./components/Canvas";
 import Controls from "./components/Controls";
 import InfoElement from "./components/InfoElement";
-import { Animation, Boid } from "./simulationLogic/animation";
+import { Animation} from "./simulationLogic/animation";
 import { useEffect, useRef, useState } from "react";
 
-function App() {
-  const canvasRef = useRef(null);
-  const animation = useRef(null); 
-  const startingSetting = {
+const startingSetting = {
     perception: 30,
     maxSpeed: 3,
     maxForce: 1,
@@ -17,6 +14,10 @@ function App() {
     separationForceConstant: 10,   
     color: 'rgba(255, 255, 100, 0.03)' 
   }
+
+function App() {
+  const canvasRef = useRef(null);
+  const animation = useRef(null); 
   const [activeGroup, setActiveGroup] = useState(0)
   const [property, setProperty] = useState([startingSetting]);
 
@@ -26,7 +27,6 @@ function App() {
 
   const updateProperty = (key, value) => {
     animation.current.updatePropertyOfBoid(key, value, activeGroup);
-    let newProperty = { ...property };
     console.log(property)
     let newArray = property.map( obj => {return {...obj} } )
     newArray[activeGroup][key] = Number(value);
@@ -53,6 +53,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log("use effect run")
     canvasRef.current.width = 1280;
     canvasRef.current.height = 720;
     const ctx = canvasRef.current.getContext("2d");

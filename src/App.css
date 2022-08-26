@@ -128,7 +128,7 @@ margin-top: 25px;
 }
 
 .canvas-element{
-  flex-basis: 70%;
+  flex-basis: 75%;
   flex-direction: column;
   justify-content: space-around;
   display: flex;
@@ -142,7 +142,7 @@ margin-top: 25px;
   border: solid;
   border-width: 2px;
   border-color: rgba(255, 254, 254, 0.30);
-  flex-basis: 27%;
+  flex-basis: 23%;
 }
 
 .active-group-options-list{

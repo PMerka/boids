@@ -1,8 +1,6 @@
 import ControlElement from "./ControlElement";
 
 function Controls({ updateProperty, property, activeGroup, setActiveGroup, setProperty, addNewBoidGroup }) {
-  console.log("Length", property)
-  const x = Array.from(Array(10).keys())
   return (
     <div className="options-element">
      

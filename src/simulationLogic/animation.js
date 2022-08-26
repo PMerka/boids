@@ -1,4 +1,4 @@
-import {distance, normaliseVector, randomUnitVect, subtractVectors, addVectors,  multiplyVector, sizeOfVector} from './math_helpers'
+import {distance, normaliseVector, subtractVectors, addVectors,  multiplyVector, sizeOfVector} from './math_helpers'
 
 class Animation {
     //Animation logic
@@ -22,7 +22,7 @@ class Animation {
     drawGrid(){
         for(let i = 0; i<=this.height; i+=20){
             this.ctx.strokeStyle = 'rgba(255, 254, 254, 0.40)';
-            if (i%100 != 0){
+            if (i%100 !== 0){
                 this.ctx.lineWidth = 1
             }
             else{
@@ -36,7 +36,7 @@ class Animation {
 
         for(let i = 0; i<=this.width; i+=20){
             this.ctx.strokeStyle = 'rgba(255, 254, 254, 0.40)';
-            if (i%100 != 0){
+            if (i%100 !== 0){
                 this.ctx.lineWidth = 1
             }
             else{
@@ -86,7 +86,6 @@ class Animation {
     }
     
     animate() {
-        console.log(this.boids)
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.drawGrid()
       for (const boid of this.boids.flat()) {
