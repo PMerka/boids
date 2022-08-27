@@ -27,7 +27,6 @@ function App() {
 
   const updateProperty = (key, value) => {
     animation.current.updatePropertyOfBoid(key, value, activeGroup);
-    console.log(property)
     let newArray = property.map( obj => {return {...obj} } )
     newArray[activeGroup][key] = Number(value);
     setProperty(newArray);
@@ -53,7 +52,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("use effect run")
     canvasRef.current.width = 1280;
     canvasRef.current.height = 720;
     const ctx = canvasRef.current.getContext("2d");
