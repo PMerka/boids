@@ -69,7 +69,7 @@ function Controls({ updateProperty, property, activeGroup, setActiveGroup, setPr
         Add new boid by click on the canvas. 
     </div>
 
-    <div style={{padding: "10px", paddingTop: "25px"}}>
+    <div style={{padding: "10px", paddingTop: "5px", maxWidth: "250px"}}>
         Groups:
         <div className="group-picking-wrapper">
         

@@ -12,7 +12,7 @@ const startingSetting = {
     alignForce: 1,
     cohesionForce: 0.5,
     separationForceConstant: 10,   
-    color: 'rgba(255, 255, 100, 0.03)' 
+    color: 'rgba(255, 235, 100, 0.04)' 
   }
 
 function App() {
