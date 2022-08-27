@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/firefly-boids/static/css/main.311b20b7.css",
+    "main.js": "/firefly-boids/static/js/main.f5f633b3.js",
+    "static/js/787.b0ec1897.chunk.js": "/firefly-boids/static/js/787.b0ec1897.chunk.js",
+    "index.html": "/firefly-boids/index.html",
+    "main.311b20b7.css.map": "/firefly-boids/static/css/main.311b20b7.css.map",
+    "main.f5f633b3.js.map": "/firefly-boids/static/js/main.f5f633b3.js.map",
+    "787.b0ec1897.chunk.js.map": "/firefly-boids/static/js/787.b0ec1897.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.311b20b7.css",
+    "static/js/main.f5f633b3.js"
+  ]
+}
