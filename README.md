@@ -1,3 +1,5 @@
+# [Firefly boid](https://pmerka.github.io/firefly-boids/)
+
 This program is a javascripr implementation of "boids" algorithm.
 
 src/simulationLogic/animation.js
